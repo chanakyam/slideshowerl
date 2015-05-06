@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- <html ng-app="slideShow"> -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Trending Sports</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel='stylesheet' id='camera-css'  href='/css/camera.css' type='text/css' media='all'>
+    <script language="javascript" src="/js/html5.js"></script>
+    <script type='text/javascript' src='/js/jquery.min.js'></script>    
+    <!--<script src="/js/angular.min.js"></script>
+    <script src="/js/controllers.js"></script>   
+    <script src="/js/ui-bootstrap-tpls-0.6.0.js"></script> -->   
+    <script type='text/javascript' src='/js/jquery-1.7.1.min.js'></script>
+    
+    <script src="/js/play_video.js"></script>
+    <script type="text/javascript" src="http://jwpsrv.com/library/5V3tOP97EeK2SxIxOUCPzg.js"></script>
+<script type="text/javascript">jwplayer.key="L0SAYMTJJs/IIkeci5tG4vgIMGHAc6YFBtmJaA==";</script></script>   
+    <script type='text/javascript' src='/js/jquery.mobile.customized.min.js'></script>
+    <script type='text/javascript' src='/js/jquery.easing.1.3.js'></script> 
+    <script type='text/javascript' src='/js/camera.min.js'></script>
+</head>
+<body>
+<div class="topsection">
+  <div class="container">
+  <nav>
+    <div class="navcontainer">
+      <div class="menu"> <span>MENU</span>
+        <ul class="Navigation">
+          <li> <a href="/" title="Home" class="highlight">Home</a> </li>
+          <!-- <li><a href="#" title="Top News">Top News</a></li> -->
+          <li><a href="/morevideos?p=1" title="More Videos">More Videos</a></li>
+          <!-- <li><a href="#" title="Rankings">Rankings</a></li> -->
+          <li><a href="/about" title="About Us">About Us</a></li>
+        </ul>
+      </div>
+      <!-- menu end --> 
+    </div>
+    <span class="clear"></span>
+  </nav>
+        <!-- TopRight end -->
+    </div>
+</div>
+<!-- topsection end -->
+
+<header>
+  <div class="container">
+  <a href="/" title="TrendingingSports" class="logo"><img src="/images/logo.png" alt=""></a>
+  <div class="topbanner"><script src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=728X90&cwpid=557677&cwwidth=728&cwheight=90&cwpnet=1&cwtagid=213282"></script></div>  
+  <span class="clear"></span> 
+  </div>
+</header>
+<!-- header end -->
+<div class="banner">
+    <div class="container">
+        <div class="slideshow">         
+                <div class="module video-stream">                  
+                  <input type="hidden" name="video_val" id="video_val" value="{{videoParam.video}}">
+                  <input type="hidden" name="video_tit" id="video_tit" value="{{videoParam.title}}">
+                  <input type="hidden" name="video_desc" id="video_desc" value="{{videoParam.description}}">
+                  <input type="hidden" name="video_duration" id="video_duration" value="{{videoParam.duration}}">
+                <div id="myElement">Loading the player...</div>              
+                </div><!-- video module end -->
+            <div class="video-title"><h2 class="videotitle">{{videoParam.title}}.  <span style="color:#FF9900;"> - {{videoParam.upload_date}}</span></h2> </div>
+        </div>
+        <!-- slideshow end -->
+        
+        <div class="rt-tpadd">
+          <script src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=300X250&cwpid=557677&cwwidth=300&cwheight=250&cwpnet=1&cwtagid=213281"></script>
+          <p class="date">{% now "jS F Y H:i" %}</p>
+
+        </div>
+        
+    </div>
+</div>
+<!-- banner end -->
+<!-- banner end -->
+<div class="container">
+  <section class="contentarea">
+    <aside class="leftcontent">
+      <div class="module">
+        <div class="module-title">Top News</div>
+        <div class="module-inner">
+          {% for n in topnba %}
+          <div class="topnews-lt">
+            <div class="row">
+              <p class="small">US NBA</p>
+              <div class="row Bigthumb"><a href="/show/{{ n.id }}"><img src="http://img1.contentapi.ws/{{ n.thumb_image }}"></a></div>
+              <a href="/show/{{ n.id }}"><p class="bigtext">{{ n.title|slice:":25" }}... <span class="image-count"> ({{ n.count }} images)</span></p></a>
+            </div>
+          </div>
+          {% endfor %}
+          {% for n in topnhl %}
+          <div class="topnews-lt">
+            <div class="row">
+              <p class="small">US NHL</p>
+              <div class="row Bigthumb"><a href="/show/{{ n.id }}"><img src="http://img1.contentapi.ws/{{ n.thumb_image }}"></a></div>
+              <a href="/show/{{ n.id }}"><p class="bigtext">{{ n.title|slice:":25" }} ... <span class="image-count">({{ n.count }} images)</span></p></a>
+            </div>
+          </div>
+         {% endfor %}
+        </div>
+        <span class="clear"></span>
+      </div>
+      <!-- module end --> 
+      <div class="module">
+        <div class="module-title">More US NBA News</div>
+         <div class="module-inner">
+         {% for n in nba %}
+          <div class="row devider"><a href="/show/{{n.id}}">{{ n.title}} </a>
+	        </div>          
+          {% endfor %}
+          <a href="/morenews?c=us_nba&p=1" class="more right">More</a> 
+	 </div>
+      </div>
+      <!-- module end -->
+      <div class="module">
+        <div class="module-title">More US NFL News</div>
+        <div class="module-inner">
+          {% for n in nfl %}
+          <div class="row devider"><a href="/show/{{n.id}}">{{ n.title}} </a></div>
+          {% endfor %}          
+          <a href="/morenews?c=us_nfl&p=1" class="more right">More</a> </div>
+      </div>
+      <!-- module end -->
+      <div class="module">
+        <div class="module-title">More US NHL News</div>
+        <div class="module-inner">
+          {% for n in nhl %}
+          <div class="row devider"><a href="/show/{{n.id}}">{{ n.title}} </a></div>
+          {% endfor %}          
+          <a href="/morenews?c=us_nhl&p=1" class="more right">More</a> </div>
+      </div>
+      <!-- module end -->
+    </aside>
+    <!-- Left pannel end -->
+    
+    <aside class="sidebar">
+      <div class="module">
+        <div class="module-title">Rankings</div>
+        <iframe src="http://meadowsinteractive.com/sports/standings_widget.php " frameborder="0" scrolling="no" width="270" height="660"></iframe>
+      </div>
+      <!--Trending Videos End-->
+      
+      <div class="rt-btadd margin20_T"><script src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=300X250&cwpid=557677&cwwidth=300&cwheight=250&cwpnet=1&cwtagid=213281"></script></div>
+        <div class="module twitterposts">     
+          <div class="module-title">Twitter on the news</div>
+            <div class="FieldLeft">
+              <a class="twitter-timeline" href="https://twitter.com/Trendingsports1" data-widget-id="425854953727356928">Tweets by @Trendingsports1</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+          <div class="twitterAdd"><script src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=160X600&cwpid=557677&cwwidth=160&cwheight=600&cwpnet=1&cwtagid=213280"></script></div>
+        </div>
+      <!--Twitter on the news End-->
+      <!--Popular Stories End-->     
+    </aside>
+    <span class="clear"></span>
+    <div class="ad1"><script src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=728X90&cwpid=557677&cwwidth=728&cwheight=90&cwpnet=1&cwtagid=213282"></script></div>
+    </section>
+</div>
+<!-- container end -->
+
+<footer>
+  <div class="container">
+      <summary> <span class="left">Copyright &copy;  {% now "Y" %}  Trendinginsports.com. All Rights Reserved | <a href=/termsandconditions>Terms & Conditions</a></span> <span class="right"><span class="left margin5">Follow Us on:</span> <a href="https://www.facebook.com/pages/Trendinginsports/235470363299187" target="_blank"><img src="/images/facebook.png"></a> <a href="twitter.com/trendingsports1" target="_blank"><img src="/images/twitter.png"></a> </span> </summary>
+  </div>
+</footer>
+</body>
+</html>
+

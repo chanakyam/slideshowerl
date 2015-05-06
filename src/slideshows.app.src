@@ -1,0 +1,18 @@
+{application, slideshows,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {modules, []},
+  {registered, [slideshows_sup]},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  lager,
+                  cowboy,
+                  jsx,
+                  ibrowse,
+                  erlydtl
+                 ]},
+  {mod, { slideshows_app, []}},
+  {env, []}
+ ]}.

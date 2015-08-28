@@ -1,7 +1,7 @@
 $(document).ready(function() {    
     // var vastURI = 'http://vast.optimatic.com/vast/getVast.aspx?id=tr3nd1ng5p0rts&zone=vpaidtag&pageURL=[INSERT_PAGE_URL]&pageTitle=[INSERT_PAGE_TITLE]&cb=[CACHE_BUSTER]';
-    var video = 'http://video1.contentapi.ws/'+$('#video_val').val();
-    var media_url = "http://video1.contentapi.ws/";
+    var video = 'http://newscdn.lycos.com/world_news/'+$('#video_val').val();
+    var media_url = "http://newscdn.lycos.com/world_news/";
     var media_title = $('#video_tit').val();
     var media_desc = $('#video_desc').val();
     var media_duration = $('#video_duration').val();      

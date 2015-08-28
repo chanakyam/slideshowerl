@@ -229,26 +229,17 @@
       </div>
   </div> -->
   <div class="module">
-        <div class="module-title">Top News</div>
+        <div class="module-title">More Videos</div>
         <div class="module-inner">
-          {% for n in topnba %}
-          <div class="topnews-lt">
-            <div class="row">
-              <p class="small">US NBA</p>
-              <div class="row Bigthumb"><a href="/show/{{ n.id }}"><img src="http://img1.contentapi.ws/{{ n.thumb_image }}"></a></div>
-              <a href="/show/{{ n.id }}"><p class="bigtext">{{ n.title|slice:":25" }}... <span class="image-count"> ({{ n.count }} images)</span></p></a>
-            </div>
-          </div>
-          {% endfor %}
-          {% for n in topnhl %}
-          <div class="topnews-lt">
-            <div class="row">
-              <p class="small">US NHL</p>
-              <div class="row Bigthumb"><a href="/show/{{ n.id }}"><img src="http://img1.contentapi.ws/{{ n.thumb_image }}"></a></div>
-              <a href="/show/{{ n.id }}"><p class="bigtext">{{ n.title|slice:":25" }} ... <span class="image-count">({{ n.count }} images)</span></p></a>
-            </div>
-          </div>
-         {% endfor %}
+          {% for n in allnews %}
+             <div class="videow-colum" >
+               <a href="/playvideo/{{ n.id }}" title="{{ n.title }}">
+               <img src="http://newscdn.lycos.com/world_news/{{n.thumb_image}}">
+               <p>{{n.title|slice:":25"}} - {{n.upload_date}}</p>               
+               <span class="play"></span>
+               </a>
+             </div>
+         {% endfor %} 
         </div>
         <span class="clear"></span>
       </div>

@@ -79,7 +79,7 @@
 <div class="container">
   <section class="contentarea">
     <aside class="leftcontent">
-      <div class="module">
+      <!-- <div class="module">
         <div class="module-title">Top News</div>
         <div class="module-inner">
           {% for n in topnba %}
@@ -102,7 +102,7 @@
          {% endfor %}
         </div>
         <span class="clear"></span>
-      </div>
+      </div> -->
       <!-- module end --> 
       <div class="module">
         <div class="module-title">More US NBA News</div>

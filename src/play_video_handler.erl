@@ -54,7 +54,13 @@ welcome(Req, State) ->
 	ResponseParams_NBA = jsx:decode(list_to_binary(Response_NBA)),	
 	NBAParams = proplists:get_value(<<"articles">>, ResponseParams_NBA),
 
-	{ok, Body} = playvideo_dtl:render([{<<"videoParam">>,Params},{<<"newsParam">>,ParamsNews},{<<"topnba">>,TopNBAParams},{<<"topnhl">>,TopNHLParams},{<<"nba">>,NBAParams}]),
+	Url_all_news = "http://api.contentapi.ws/videos?channel=world_news&limit=20&format=short&skip=0",
+	% io:format("all news : ~p~n",[Url_all_news]),
+	{ok, "200", _, ResponseAllNews} = ibrowse:send_req(Url_all_news,[],get,[],[]),
+	ResponseParams = jsx:decode(list_to_binary(ResponseAllNews)),
+	ResAllNews = proplists:get_value(<<"articles">>, ResponseParams),
+
+	{ok, Body} = playvideo_dtl:render([{<<"videoParam">>,Params},{<<"newsParam">>,ParamsNews},{<<"topnba">>,TopNBAParams},{<<"topnhl">>,TopNHLParams},{<<"nba">>,NBAParams},{<<"allnews">>,ResAllNews}]),
     {Body, Req2, State}.
 
 

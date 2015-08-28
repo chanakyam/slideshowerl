@@ -92,7 +92,8 @@
         <div class="module-inner">
       	  {% for n in allnews %}
       	     <div class="videow-colum" >
-      	       <a href="/playvideo/{{ n.id }}" title="{{ n.title }}"><img src="http://img1.contentapi.ws/{{n.thumb_image}}">
+      	       <a href="/playvideo/{{ n.id }}" title="{{ n.title }}">
+               <img src="http://newscdn.lycos.com/world_news/{{n.thumb_image}}">
                <p>{{n.title|slice:":25"}} - {{n.upload_date}}</p>               
                <span class="play"></span>
                </a>

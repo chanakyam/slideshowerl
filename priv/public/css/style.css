@@ -274,7 +274,10 @@ width:100%;
 	position: relative;
 }
 
-.videow-colum img {max-width:100%;}
+.videow-colum img {
+	/*max-width:100%;*/
+	width:240px;
+}
 .play {
 background: url(../images/play.png) no-repeat 0 0;
 width: 41px;

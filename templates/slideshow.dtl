@@ -22,15 +22,15 @@
     <script type='text/javascript' src='/js/camera.min.js'></script>
 
 <script>
-jQuery(function(){
+// jQuery(function(){
 
-	jQuery('#camera_wrap_2').camera({
-		height: '550px',
-		loader: 'bar',
-		pagination: false,
-		thumbnails: true
-	});
-});
+// 	jQuery('#camera_wrap_2').camera({
+// 		height: '550px',
+// 		loader: 'bar',
+// 		pagination: false,
+// 		thumbnails: true
+// 	});
+// });
 </script>
 
 </head>
@@ -97,11 +97,11 @@ jQuery(function(){
         <div class="module-inner">	
 <!-- camera slider code -->
 
-	<div class="camera_wrap camera_magenta_skin" id="camera_wrap_2">
+	<!-- <div class="camera_wrap camera_magenta_skin" id="camera_wrap_2">
 	  {% for img in newsParam.thumb_image %}
 		<div data-thumb="http://img1.contentapi.ws/{{ img }}" data-src="http://img1.contentapi.ws/{{ img }}" data-time="1700" data-trasPeriod="4000">    </div>
 	  {% endfor %}
-	</div>
+	</div> -->
         <div class="news-body">
           {{newsParam.news_body}}
         </div>

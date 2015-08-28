@@ -49,29 +49,29 @@ welcome(Req, State) ->
 
 	% for videos
 
-	Url = case Category of 
-		"us_nba" ->
-			%Category = "US",
-			"http://api.contentapi.ws/videos?channel=us_mlb&limit=1&skip=3&format=long";
-		"us_nfl" ->
-			%Category = "US",
-			"http://api.contentapi.ws/videos?channel=us_mlb&limit=1&skip=4&format=long";
+	% Url = case Category of 
+	% 	"us_nba" ->
+	% 		%Category = "US",
+	% 		"http://api.contentapi.ws/videos?channel=us_mlb&limit=1&skip=3&format=long";
+	% 	"us_nfl" ->
+	% 		%Category = "US",
+	% 		"http://api.contentapi.ws/videos?channel=us_mlb&limit=1&skip=4&format=long";
 			
-		"us_nhl" ->
-			%Category = "Politics",
-			"http://api.contentapi.ws/videos?channel=us_mlb&limit=1&skip=5&format=long";
+	% 	"us_nhl" ->
+	% 		%Category = "Politics",
+	% 		"http://api.contentapi.ws/videos?channel=us_mlb&limit=1&skip=5&format=long";
 		
-		_ ->
-			%Category = "None",
-			lager:info("#########################None")
+	% 	_ ->
+	% 		%Category = "None",
+	% 		lager:info("#########################None")
 
-	end,
+	% end,
 
 	{ok, "200", _, Response} = ibrowse:send_req(Url_all_news,[],get,[],[]),
 	ResponseParams = jsx:decode(list_to_binary(Response)),	
 	ParamsAllNews = proplists:get_value(<<"articles">>, ResponseParams),
 
-	% Url = "http://api.contentapi.ws/videos?channel=us_mlb&limit=1&skip=0&format=long",
+	Url = "http://api.contentapi.ws/videos?channel=world_news&limit=1&skip=0&format=long",
 	% io:format("movies url: ~p~n",[Url]),
 	{ok, "200", _, Response_mlb} = ibrowse:send_req(Url,[],get,[],[]),
 	ResponseParams_mlb = jsx:decode(list_to_binary(Response_mlb)),	

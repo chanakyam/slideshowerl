@@ -29,13 +29,13 @@ welcome(Req, State) ->
 	% {CategoryBinary, _} = cowboy_req:qs_val(<<"c">>, Req),
 	% Category = binary_to_list(CategoryBinary),	
 
-	Url = "http://api.contentapi.ws/videos?channel=us_mlb&limit=1&skip=7&format=long",
+	Url = "http://api.contentapi.ws/videos?channel=world_news&limit=1&skip=7&format=long",
 	% io:format("movies url: ~p~n",[Url]), 
 	{ok, "200", _, Response_mlb} = ibrowse:send_req(Url,[],get,[],[]),
 	ResponseParams_mlb = jsx:decode(list_to_binary(Response_mlb)),	
 	[Params] = proplists:get_value(<<"articles">>, ResponseParams_mlb),
 
-	Url_all_news = string:concat("http://api.contentapi.ws/videos?channel=us_mlb&limit=20&format=short&skip=", integer_to_list(SkipItems)),
+	Url_all_news = string:concat("http://api.contentapi.ws/videos?channel=world_news&limit=20&format=short&skip=", integer_to_list(SkipItems)),
 	% io:format("all news : ~p~n",[Url_all_news]),
 	{ok, "200", _, ResponseAllNews} = ibrowse:send_req(Url_all_news,[],get,[],[]),
 	ResponseParams = jsx:decode(list_to_binary(ResponseAllNews)),
